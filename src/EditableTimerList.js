@@ -11,7 +11,8 @@ class EditableTimerList extends Component{
                 project={timer.project}
                 elapsed={timer.elapsed}
                 runningSince={timer.runningSince}
-                onFormSubmit={this.props.onFormSubmit}/>
+                onFormSubmit={this.props.onFormSubmit}
+                handleDelete={this.props.handleDelete}/>
         ));
         return(
             <div id="timers">

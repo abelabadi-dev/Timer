@@ -1,8 +1,23 @@
 import React,{Component} from 'react';
 import helpers from './util/helpers'
 class Timer extends Component{
+
+
+    componentDidMount(){
+        this.forceUpdateInterval = setInterval(()=>this.forceUpdate(),50);
+    }
+
+
+    componentWillUnmount(){
+        clearInterval(this.forceUpdateInterval);
+    }
+
+    handleTrashClick = () => {
+        this.props.handleDelete(this.props.id);
+    };
+
     render(){
-        const elapsedString = helpers.renderElapsedString(this.props.elapsed);
+        const elapsedString = helpers.renderElapsedString(this.props.elapsed,this.props.runningSince);
         return(
             <div className="ui centered card">
                 <div className="content">
@@ -22,7 +37,8 @@ class Timer extends Component{
                         onClick={this.props.onEditClick}>
                             <i className="edit icon"></i>
                         </span>
-                        <span className="right floated trash icon">
+                        <span className="right floated trash icon"
+                        onClick={this.handleTrashClick}>
                             <i className="trash icon"></i>
                         </span>
                     </div>

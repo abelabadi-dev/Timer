@@ -11,7 +11,7 @@ class EditableTimer extends Component{
         this.openForm();
     };
 
-    hanleFormClose = () => {
+    handleFormClose = () => {
         this.closeForm();
     };
 
@@ -46,7 +46,8 @@ class EditableTimer extends Component{
                     project={this.props.project}
                     elapsed={this.props.elapsed}
                     runningSince={this.props.runningSince}
-                    onEditClick={this.handleEditClick}/>
+                    onEditClick={this.handleEditClick}
+                    handleDelete={this.props.handleDelete}/>
             );
         }
     }
